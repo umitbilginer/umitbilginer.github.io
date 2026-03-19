@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&Uuml;mit Bilginer | Animal Geneticist</title>
+  <meta name="description" content="PhD Student in Animal & Dairy Sciences at UW-Madison. Quantitative genetics, genomic selection, methane emissions research.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="&Uuml;mit Bilginer | Animal Geneticist">
+  <meta property="og:description" content="PhD Student at UW-Madison. Genomic selection, GWAS, and methane emissions in livestock.">
+  <meta property="og:image" content="assets/og-preview.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ========== NAVIGATION ========== -->
+  <nav id="navbar">
+    <div class="nav-logo">UB</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Journey</a>
+      <a href="#publications">Publications</a>
+      <a href="#outreach">Videos</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <canvas id="dna-canvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-greeting">Hello, I'm</div>
+      <h1 class="hero-name">
+        <span class="name-line">&#220;mit</span>
+        <span class="name-line">Bilginer</span>
+      </h1>
+      <p class="hero-tagline">Breeding Climate-Smart Livestock <span class="tagline-sep">|</span> Through Genomics</p>
+      <p class="hero-sub">PhD Student &middot; Animal &amp; Dairy Sciences &middot; UW&ndash;Madison</p>
+      <div class="hero-cta">
+        <a href="#research" class="btn btn-primary">Explore My Research</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ========== STATS BAR ========== -->
+  <section id="stats">
+    <div class="stats-grid stats-3">
+      <div class="stat-item">
+        <span class="stat-number" data-target="19">0</span>
+        <span class="stat-label">Publications</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="123" data-suffix="+">0</span>
+        <span class="stat-label">Citations</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="7">0</span>
+        <span class="stat-label">h-index</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section">
+    <div class="section-container">
+      <div class="about-grid">
+        <div class="about-image reveal-left">
+          <div class="image-frame">
+            <img src="assets/profile_pic.jpeg" alt="&Uuml;mit Bilginer" width="320" height="320" loading="lazy">
+            <div class="image-glow"></div>
+          </div>
+        </div>
+        <div class="about-text reveal-right">
+          <h2 class="section-title">About Me</h2>
+          <p class="about-lead">I grew up around livestock. Our family had sheep, cattle, and chickens in rural T&uuml;rkiye, and I spent years as a shepherd before I ever touched a textbook on genetics.</p>
+          <p>During my undergraduate years, I started working part-time at a university research farm. What began as a way to support myself became the turning point: surrounded by breeding trials and nutrition studies, I realized that genetics was the key. The one lever that could permanently improve animal performance, welfare, and environmental impact.</p>
+          <p>That conviction took me from <strong>Akdeniz University</strong> to <strong>Aarhus University</strong> in Denmark, then to <strong>Michigan State</strong>, and now to <strong>UW&ndash;Madison</strong>, where I pursue my PhD with <strong>Dr. Francisco Pe&ntilde;agaricano</strong> on genomic prediction in dairy cattle. Along the way, I gained industry perspective at <strong>Cobb-Vantress</strong> (Tyson Foods) and <strong>ABS Global</strong> (Genus plc).</p>
+          <p>My work spans cattle, sheep, goats, chickens, and quail. The principles of population genomics transcend species.</p>
+          <img src="assets/multi-species.png" alt="Livestock species: chicken, sheep, goat, cow, quail" class="about-species-img" loading="lazy">
+          <p class="about-goal">I believe genomics can help us raise livestock with less environmental footprint. Less methane, better genetics, a more sustainable world.</p>
+          <div class="about-interests">
+            <span class="interest-tag">Quantitative Genetics</span>
+            <span class="interest-tag">Genomic Selection</span>
+            <span class="interest-tag">GWAS</span>
+            <span class="interest-tag">Selection Signatures</span>
+            <span class="interest-tag">Population Genomics</span>
+            <span class="interest-tag">Conservation Genetics</span>
+            <span class="interest-tag">Methane &amp; Sustainability</span>
+            <span class="interest-tag">Bioinformatics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-divider-img" role="presentation">
+    <img src="assets/livestock-field.png" alt="" loading="lazy">
+  </div>
+
+  <!-- ========== RESEARCH ========== -->
+  <section id="research" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Research</h2>
+      <p class="section-subtitle reveal-up">From individual genomes to global sustainability</p>
+      <div class="research-highlight reveal-up">
+        <span class="conf-badge">UPCOMING &middot; WCGALP 2026</span>
+        Oral presentation: <em>Genetic parameters of methane emissions traits in US Holstein cows</em>
+      </div>
+      <div class="research-grid">
+        <div class="research-card reveal-up" style="--delay: 0.1s">
+          <div class="research-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M32 8 C28 20, 20 28, 8 32 C20 36, 28 44, 32 56 C36 44, 44 36, 56 32 C44 28, 36 20, 32 8Z"/>
+              <circle cx="32" cy="32" r="4"/>
+            </svg>
+          </div>
+          <h3>Genomic Selection</h3>
+          <p>Building prediction models for complex livestock traits using genome-wide SNP data. Helping breeders make smarter decisions before an animal is even born.</p>
+        </div>
+        <div class="research-card reveal-up" style="--delay: 0.2s">
+          <div class="research-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M8 48 L16 32 L24 40 L32 16 L40 28 L48 20 L56 36"/>
+              <circle cx="32" cy="16" r="3"/><circle cx="48" cy="20" r="3"/>
+            </svg>
+          </div>
+          <h3>GWAS &amp; QTL Mapping</h3>
+          <p>Identifying genetic variants behind growth, milk production, and adaptation. From Anatolian goats to commercial poultry lines.</p>
+        </div>
+        <div class="research-card reveal-up" style="--delay: 0.3s">
+          <div class="research-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="32" cy="32" r="20"/>
+              <path d="M20 26 Q32 18 44 26"/><path d="M20 38 Q32 46 44 38"/>
+              <line x1="32" y1="12" x2="32" y2="52"/>
+            </svg>
+          </div>
+          <h3>Population Genomics</h3>
+          <p>Mapping genetic diversity and selection footprints in native livestock breeds to guide conservation of irreplaceable genetic resources.</p>
+        </div>
+        <div class="research-card reveal-up" style="--delay: 0.4s">
+          <div class="research-icon">
+            <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 48 L16 24 C16 16, 24 8, 32 8 C40 8, 48 16, 48 24 L48 48"/>
+              <path d="M8 48 L56 48"/><circle cx="24" cy="36" r="2"/><circle cx="40" cy="28" r="2"/>
+            </svg>
+          </div>
+          <h3>Methane &amp; Sustainability</h3>
+          <p>Investigating how genomic tools can reduce methane emissions in dairy cattle. Helping producers meet sustainability goals without sacrificing performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE TIMELINE ========== -->
+  <section id="experience" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Journey</h2>
+      <p class="section-subtitle reveal-up">From a shepherd's field to genomics research</p>
+      <div class="timeline">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.1s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Summer 2026</div>
+            <div class="timeline-upcoming">UPCOMING</div>
+            <h3>PhD Geneticist Intern</h3>
+            <p class="timeline-org">ABS Global (Genus plc) &middot; DeForest, WI</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.15s">
+          <div class="timeline-dot active"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2025 &ndash; Present</div>
+            <h3>PhD &middot; Graduate Research Assistant</h3>
+            <p class="timeline-org">University of Wisconsin&ndash;Madison</p>
+            <p>Genomic prediction and quantitative genetics in dairy cattle with Dr. Francisco Pe&ntilde;agaricano.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.2s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Summer 2025</div>
+            <h3>Genetics Intern</h3>
+            <p class="timeline-org">Cobb-Vantress (Tyson Foods) &middot; Siloam Springs, AR</p>
+            <p>GWAS with Near-Infrared datasets for genetic marker identification in poultry.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.25s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2024 &ndash; 2025</div>
+            <h3>Graduate Research Assistant</h3>
+            <p class="timeline-org">Michigan State University &middot; East Lansing, MI</p>
+            <p>Genomic prediction methodologies for livestock traits with Dr. Cedric Gondro.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.3s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2023</div>
+            <h3>Visiting Researcher (Erasmus+)</h3>
+            <p class="timeline-org">Aarhus University &middot; Denmark</p>
+            <p>Bioinformatics of ddRADseq data at the Center for Quantitative Genetics and Genomics.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.35s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2019 &ndash; 2021</div>
+            <h3>M.Sc. in Animal Science</h3>
+            <p class="timeline-org">Akdeniz University &middot; Antalya, T&uuml;rkiye</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.4s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2014 &ndash; 2018</div>
+            <h3>B.Sc. in Animal Science</h3>
+            <p class="timeline-org">Akdeniz University &middot; Antalya, T&uuml;rkiye</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-up" style="--delay: 0.45s">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Summer 2017</div>
+            <h3>Dairy Farm Intern</h3>
+            <p class="timeline-org">G&uuml;naydın Hayvancılık &middot; Balıkesir, T&uuml;rkiye</p>
+            <p>Three months hands-on experience at a commercial dairy operation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section divider: genomics -->
+  <div class="section-divider-img" role="presentation">
+    <img src="assets/genomics-visual.png" alt="" loading="lazy">
+  </div>
+
+  <!-- ========== PUBLICATIONS ========== -->
+  <section id="publications" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Publications</h2>
+      <p class="section-subtitle reveal-up">19 peer-reviewed articles &middot; 123+ citations &middot; h-index 7</p>
+
+      <div class="pub-filters reveal-up">
+        <button class="pub-filter active" data-filter="all">All (19)</button>
+        <button class="pub-filter" data-filter="2026">2026</button>
+        <button class="pub-filter" data-filter="2025">2025</button>
+        <button class="pub-filter" data-filter="2024">2024</button>
+        <button class="pub-filter" data-filter="2023">2023</button>
+        <button class="pub-filter" data-filter="2022">2022</button>
+        <button class="pub-filter" data-filter="2021">2021</button>
+      </div>
+
+      <div class="pub-list">
+
+        <a class="pub-card reveal-up" data-year="2026" href="https://doi.org/10.1016/j.smallrumres.2026.107707" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2026</div>
+          <div class="pub-info">
+            <h4><strong>Bilginer, U.</strong>, Demir, E., Gondro, C., Argun Karsli, B., Balcioglu, M. S., &amp; Karsli, T.</h4>
+            <p class="pub-title">Evaluation of ddRADseq data for SNP and InDel discovery in Pirlak sheep.</p>
+            <p class="pub-journal">Small Ruminant Research, 107707</p>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2026" href="https://doi.org/10.1007/s00335-025-10108-0" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2026</div>
+          <div class="pub-info">
+            <h4>Demir, E., <strong>Bilginer, U.</strong>, Dogru, H., Karacaoren, B., ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Candidate genes related to growth and milk production in three Anatolian goats revealed by GWAS.</p>
+            <p class="pub-journal">Mammalian Genome, 37(1), 30</p>
+            <span class="pub-citations">1 citation</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2025" href="https://doi.org/10.1016/j.smallrumres.2024.107570" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2025</div>
+          <div class="pub-info">
+            <h4><strong>Bilginer, U.</strong>, Demir, E., Argun Karsli, B., Dogru, H., ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Unveiling genomic diversity and population structure in three Anatolian goats at genome-wide level.</p>
+            <p class="pub-journal">Small Ruminant Research, 252, 107570</p>
+            <span class="pub-citations">2 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2025" href="https://doi.org/10.1016/j.psj.2025.105193" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2025</div>
+          <div class="pub-info">
+            <h4>Demir, E., Argun Karsli, B., Ozdemir, D., <strong>Bilginer, U.</strong>, ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Genome-wide comparative analysis of variability and population structure between autochthonous Turkish chicken breeds and commercial hybrid lines.</p>
+            <p class="pub-journal">Poultry Science, 104(7), 105193</p>
+            <span class="pub-citations">3 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2025" href="https://doi.org/10.1007/s11250-025-04456-3" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2025</div>
+          <div class="pub-info">
+            <h4>Argun Karsli, B., Demir, E., <strong>Bilginer, U.</strong>, Balcioglu, M. S., &amp; Karsli, T.</h4>
+            <p class="pub-title">Re-visiting genetic background of some native Turkish sheep populations: Bottleneck and migration.</p>
+            <p class="pub-journal">Tropical Animal Health and Production, 57(6), 273</p>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2025" href="https://doi.org/10.1080/00071668.2025.2450000" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2025</div>
+          <div class="pub-info">
+            <h4>Demir, E., Argun Karsli, B., Ozdemir, D., <strong>Bilginer, U.</strong>, ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Genome-wide scanning for selection signatures in two autochthonous Anatolian chicken breeds.</p>
+            <p class="pub-journal">British Poultry Science, 1&ndash;10</p>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2025" href="https://doi.org/10.29185/hayam.1462012" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2025</div>
+          <div class="pub-info">
+            <h4>Karakose, H., Demir, E., <strong>Bilginer, U.</strong>, Atmaca, V., ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Associations of VLDLR gene polymorphism (intron 11, 392C>T) with egg production and weight in Japanese quails.</p>
+            <p class="pub-journal">Journal of Animal Production, 66(1), 25&ndash;31</p>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2024" href="https://doi.org/10.1038/s41598-024-71565-y" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2024</div>
+          <div class="pub-info">
+            <h4>Argun Karsli, B., Demir, E., <strong>Bilginer, U.</strong>, Dogru, H., Karsli, T., &amp; Kaya, S.</h4>
+            <p class="pub-title">Genome-wide discovery of selection signatures in four Anatolian sheep breeds revealed by ddRADseq.</p>
+            <p class="pub-journal">Scientific Reports, 14, 20518</p>
+            <span class="pub-citations">9 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2024" href="https://doi.org/10.29133/yyutbd.1419000" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2024</div>
+          <div class="pub-info">
+            <h4>Uzel, S. O., Karsli, B. A., <strong>Bilginer, U.</strong>, Demir, E., &amp; Karsli, T.</h4>
+            <p class="pub-title">HSP90AB1 variations in four cattle breeds raised in T&uuml;rkiye.</p>
+            <p class="pub-journal">Yuzuncu Yil University Journal of Agricultural Sciences, 34(4), 649&ndash;655</p>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <div class="pub-card reveal-up" data-year="2024">
+          <div class="pub-year-badge">2024</div>
+          <div class="pub-info">
+            <h4><strong>Bilginer, U.</strong>, Argun Karsli, B., &amp; Demir, E.</h4>
+            <p class="pub-title">HSP90AA1 gene polymorphism in Hamdani sheep.</p>
+            <p class="pub-journal">V. International Applied Statistics Congress, 949&ndash;953</p>
+          </div>
+        </div>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.1111/age.13379" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Demir, E., Moravcikova, N., Kaya, S., Kasarda, R., <strong>Bilginer, U.</strong>, ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Genome-wide screening for selection signatures in native and cosmopolitan cattle breeds reared in T&uuml;rkiye.</p>
+            <p class="pub-journal">Animal Genetics, 54(6), 721&ndash;730</p>
+            <span class="pub-citations">15 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.1080/10495398.2023.2196541" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Demir, E., Moravcikova, N., Kaya, S., Kasarda, R., Dogru, H., <strong>Bilginer, U.</strong>, ... &amp; Karsli, T.</h4>
+            <p class="pub-title">Genome-wide genetic variation and population structure of native and cosmopolitan cattle breeds reared in T&uuml;rkiye.</p>
+            <p class="pub-journal">Animal Biotechnology, 34(8), 3877&ndash;3886</p>
+            <span class="pub-citations">12 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.5194/aab-66-31-2023" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Demir, E., Moravcikova, N., Argun Karsli, B., ... <strong>Bilginer, U.</strong>, &amp; Karsli, T.</h4>
+            <p class="pub-title">Mitochondrial DNA diversity of D-loop region in three native Turkish cattle breeds.</p>
+            <p class="pub-journal">Archives Animal Breeding, 66(1), 31&ndash;40</p>
+            <span class="pub-citations">8 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.46897/livestockstudies.1369250" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Turkmen, D., Demir, E., <strong>Bilginer, U.</strong>, &amp; Karsli, T.</h4>
+            <p class="pub-title">Investigation of some autosomal recessive inherited diseases (BLAD, DUMPS, CVM, and FXID) in Holstein cattle.</p>
+            <p class="pub-journal">Livestock Studies, 63(2), 87&ndash;91</p>
+            <span class="pub-citations">1 citation</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.29185/hayam.1190657" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Yurdagul, K. G., Atay, S., <strong>Bilginer, U.</strong>, Karsli, T., &amp; Demir, E.</h4>
+            <p class="pub-title">Genetic variations in HSP90AA1 gene region in Pirlak sheep breed.</p>
+            <p class="pub-journal">Journal of Animal Production, 64(1), 12&ndash;16</p>
+            <span class="pub-citations">4 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2023" href="https://doi.org/10.33462/jotaf.1264974" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2023</div>
+          <div class="pub-info">
+            <h4>Atay, S., Yurdagul, K. G., <strong>Bilginer, U.</strong>, Karsli, T., &amp; Demir, E.</h4>
+            <p class="pub-title">InDel variations of PRL and GHR genes associated with litter size in Pirlak sheep breed.</p>
+            <p class="pub-journal">Tekirdag Journal of Agricultural Faculty, 20(4), 890&ndash;897</p>
+            <span class="pub-citations">4 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2022" href="https://doi.org/10.2478/aspr-2022-0024" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2022</div>
+          <div class="pub-info">
+            <h4><strong>Bilginer, U.</strong>, Ergin, M., Demir, E., Yolcu, H. I., &amp; Karsli, B. A.</h4>
+            <p class="pub-title">Detection of genetic diversity in cattle by microsatellite and SNP markers &ndash; A review.</p>
+            <p class="pub-journal">Animal Science Papers and Reports, 40(4), 375&ndash;392</p>
+            <span class="pub-citations">12 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2022" href="https://doi.org/10.3390/ruminants2020017" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2022</div>
+          <div class="pub-info">
+            <h4>Demir, E., Ceccobelli, S., <strong>Bilginer, U.</strong>, Pasquini, M., Attard, G., &amp; Karsli, T.</h4>
+            <p class="pub-title">Conservation and selection of genes related to environmental adaptation in native small ruminant breeds: A review.</p>
+            <p class="pub-journal">Ruminants, 2(2), 255&ndash;270</p>
+            <span class="pub-citations">36 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+        <a class="pub-card reveal-up" data-year="2021" href="https://doi.org/10.1017/S1466252321000128" target="_blank" rel="noopener">
+          <div class="pub-year-badge">2021</div>
+          <div class="pub-info">
+            <h4>Demir, E., <strong>Bilginer, U.</strong>, Balcioglu, M. S., &amp; Karsli, T.</h4>
+            <p class="pub-title">Direct and indirect contributions of molecular genetics to farm animal welfare: A review.</p>
+            <p class="pub-journal">Animal Health Research Reviews, 22(2), 177&ndash;186</p>
+            <span class="pub-citations">16 citations</span>
+          </div>
+          <span class="pub-link-icon">&nearr;</span>
+        </a>
+
+      </div>
+
+      <div class="pub-footer reveal-up">
+        <button class="btn btn-ghost pub-show-all" id="pub-toggle">Show all 19 publications</button>
+        <a href="https://scholar.google.com/citations?user=y5osRVUAAAAJ" target="_blank" rel="noopener" class="btn btn-ghost">Google Scholar &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group reveal-up" style="--delay: 0.1s">
+          <h3>Genomics &amp; Bioinformatics</h3>
+          <div class="skill-tags">
+            <span>R</span><span>BLUPF90+</span><span>PLINK</span><span>GCTA</span>
+            <span>VCFtools</span><span>FastQC</span><span>ADMIXTURE</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up" style="--delay: 0.2s">
+          <h3>Laboratory</h3>
+          <div class="skill-tags">
+            <span>DNA Extraction</span><span>PCR</span><span>Gel Electrophoresis</span>
+            <span>Library Prep (ddRADseq)</span><span>GBS</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up" style="--delay: 0.3s">
+          <h3>Computing</h3>
+          <div class="skill-tags">
+            <span>Linux/Unix</span><span>Bash Scripting</span><span>HPC</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up" style="--delay: 0.4s">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>English</span><span>Turkish</span><span>Kurdish</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OUTREACH / SELECT & SUSTAIN ========== -->
+  <section id="outreach" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Science Outreach</h2>
+      <p class="section-subtitle reveal-up">My science communication channel on livestock genetics and sustainability</p>
+
+      <div class="outreach-card reveal-up">
+        <div class="outreach-logo">
+          <img src="assets/selectandsustain_logo.jpg" alt="Select and Sustain" class="outreach-logo-img">
+          <span class="outreach-brand">SELECT &amp; SUSTAIN</span>
+          <p class="outreach-desc">I started this channel because the science I read every day deserves a bigger audience. Each episode takes one concept from livestock genetics or methane research and explains it in 60 seconds.</p>
+        </div>
+
+        <!-- Featured Episode -->
+        <div class="video-featured">
+          <div class="video-slot video-slot-large">
+            <video src="assets/videos/video03_twice_the_methane.mp4" muted playsinline preload="metadata" onclick="this.paused ? this.play() : this.pause()"></video>
+            <div class="video-label">EP 3: Why Some Cows Produce Twice the Methane</div>
+          </div>
+        </div>
+
+        <!-- More Episodes -->
+        <div class="video-grid video-grid-4">
+          <div class="video-slot">
+            <video src="assets/videos/video01_burp_not_fart.mp4" muted playsinline preload="metadata" onclick="this.paused ? this.play() : this.pause()"></video>
+            <div class="video-label">EP 1: Cows Burp Methane</div>
+          </div>
+          <div class="video-slot">
+            <video src="assets/videos/video02_methane_80x_co2.mp4" muted playsinline preload="metadata" onclick="this.paused ? this.play() : this.pause()"></video>
+            <div class="video-label">EP 2: Methane 80x CO2</div>
+          </div>
+          <div class="video-slot">
+            <video src="assets/videos/video04_v2_measuring_the_invisible.mp4" muted playsinline preload="metadata" onclick="this.paused ? this.play() : this.pause()"></video>
+            <div class="video-label">EP 4: Measuring the Invisible</div>
+          </div>
+          <div class="video-slot">
+            <video src="assets/videos/video05_milk_climate_secret.mp4" muted playsinline preload="metadata" onclick="this.paused ? this.play() : this.pause()"></video>
+            <div class="video-label">EP 5: Milk's Climate Secret</div>
+          </div>
+        </div>
+
+        <div class="outreach-socials">
+          <a href="https://www.instagram.com/selectandsustain/" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right: 0.5rem"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @selectandsustain
+          </a>
+          <a href="https://www.youtube.com/@selectandsustain" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right: 0.5rem"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+          </a>
+          <a href="https://www.linkedin.com/in/%C3%BCmit-bilginer-a62706192/" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="margin-right: 0.5rem"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section">
+    <div class="section-container">
+      <h2 class="section-title center reveal-up">Let's Connect</h2>
+      <p class="section-subtitle reveal-up">Open to collaborations, discussions, and opportunities</p>
+      <div class="contact-grid reveal-up">
+        <a href="mailto:bilginer@wisc.edu" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13L2 4"/></svg>
+          </div>
+          <span>bilginer@wisc.edu</span>
+        </a>
+        <a href="https://scholar.google.com/citations?user=y5osRVUAAAAJ" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5L12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 100 14 7 7 0 000-14z"/></svg>
+          </div>
+          <span>Google Scholar</span>
+        </a>
+        <a href="https://www.linkedin.com/in/%C3%BCmit-bilginer-a62706192/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://researchgate.net/profile/Umit-Bilginer" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0c-1.326 0-2.4 1.074-2.4 2.4s1.074 2.4 2.4 2.4 2.4-1.074 2.4-2.4S20.912 0 19.586 0zM4.8 4.8C2.149 4.8 0 6.949 0 9.6v4.8c0 2.651 2.149 4.8 4.8 4.8h4.8V16.8H4.8c-1.326 0-2.4-1.074-2.4-2.4V9.6c0-1.326 1.074-2.4 2.4-2.4h4.8V4.8H4.8zm14.786 0v2.4h-4.8c-1.326 0-2.4 1.074-2.4 2.4v4.8c0 1.326 1.074 2.4 2.4 2.4h4.8v2.4h-4.8c-2.651 0-4.8-2.149-4.8-4.8V9.6c0-2.651 2.149-4.8 4.8-4.8h4.8z"/></svg>
+          </div>
+          <span>ResearchGate</span>
+        </a>
+        <a href="https://www.youtube.com/@selectandsustain" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <span>YouTube</span>
+        </a>
+        <a href="https://www.instagram.com/selectandsustain/" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </div>
+          <span>Instagram</span>
+        </a>
+        <a href="https://github.com/umitbilginer" target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </div>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>&copy; 2026 &Uuml;mit Bilginer</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
