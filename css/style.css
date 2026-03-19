@@ -1399,32 +1399,9 @@ a.pub-card:hover .pub-link-icon {
   grid-template-columns: repeat(5, 1fr);
 }
 
-/* ---------- VIDEO PLAY OVERLAY ---------- */
+/* ---------- VIDEO SLOT ---------- */
 .video-slot {
   position: relative;
-}
-
-.video-slot::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpolygon points='9,6 18,12 9,18'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 16px;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  z-index: 2;
-}
-
-.video-slot:hover::after {
-  opacity: 0.8;
 }
 
 /* ---------- PUB JOURNAL CONTRAST FIX ---------- */
