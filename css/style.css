@@ -889,11 +889,20 @@ h3 {
 
 .cv .tl { grid-template-columns: 148px minmax(0, 1fr); }
 
+.cv__pubs { list-style: none; }
+
 .cv__pub {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: var(--space-lg);
   padding-block: var(--space-md);
   border-top: 1px solid var(--hairline);
   font-size: 14.5px;
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .cv__pub { grid-template-columns: 48px minmax(0, 1fr); gap: var(--space-md); }
 }
 .cv__pub .authors { color: var(--dim); }
 .cv__pub .authors .self { color: var(--ink); font-weight: 500; }
