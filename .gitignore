@@ -3,3 +3,9 @@ gemini_prompts.md
 *.pdf
 .claude/
 website/
+
+animations/
+assets/audio/
+assets/graphics/
+output/
+scripts/
