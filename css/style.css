@@ -169,7 +169,7 @@ button:focus-visible {
 .nav__name {
   font-family: var(--font-text);
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 0.02em;
   color: var(--ink);
   text-decoration: none;
@@ -239,7 +239,7 @@ h1 {
 .lede {
   margin-top: clamp(var(--space-xl), 5vh, var(--space-2xl));
   max-width: 46ch;
-  font-size: clamp(15px, 1.15vw, 17px);
+  font-size: clamp(16px, 1.15vw, 17px);
   line-height: 1.65;
   color: var(--dim);
   text-wrap: pretty;
@@ -338,6 +338,10 @@ h3 {
 .metrics {
   padding-block: clamp(var(--space-2xl), 9vh, 120px);
   border-top: 1px solid var(--hairline);
+}
+
+.metrics__kicker {
+  margin-bottom: clamp(var(--space-xl), 6vh, var(--space-2xl));
 }
 
 .metrics__row {
@@ -458,11 +462,30 @@ h3 {
   color: var(--ink);
   font-family: var(--font-display);
   font-weight: 200;
-  font-size: clamp(4rem, 9vw, 8.5rem);
+  font-size: clamp(4rem, 10.5vw, 10.5rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
   display: block;
   font-variant-numeric: tabular-nums;
+}
+
+/* at desktop width, the framed thesis block becomes a two-column
+   composition: prose left, the ≈30% figure at poster scale right,
+   so the drawn border holds no dead space */
+@media (min-width: 1200px) {
+  .research__lead {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    column-gap: clamp(var(--space-2xl), 6vw, var(--space-3xl));
+  }
+  .research__lead > * { grid-column: 1; }
+  .research__figure {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    align-self: center;
+    justify-self: start;
+    margin-top: 0;
+  }
 }
 
 .research__figure .l {
@@ -572,17 +595,17 @@ h3 {
   line-height: 1.45;
   text-wrap: pretty;
 }
-.pub__title a { text-decoration-color: var(--hairline-strong); }
+.pub__title a { text-decoration-color: var(--hairline); }
 .pub__title a:hover { text-decoration-color: var(--ink); }
 
 .pub__meta {
   margin-top: var(--space-sm);
-  font-size: 13.5px;
+  font-size: 14px;
   color: var(--dim);
   line-height: 1.55;
 }
 .pub__meta .venue { font-style: italic; }
-.pub__meta .fa {
+.fa {
   color: var(--ink);
   border: 1px solid var(--hairline-strong);
   padding: 1px 6px;
@@ -717,6 +740,10 @@ h3 {
 }
 .recog__note a { color: var(--ink); }
 
+/* the symposium recording spans the full section width beneath both
+   columns, so the Talks column no longer towers over Recognition */
+.recog__video { grid-column: 1 / -1; }
+
 /* click-to-load video facade */
 .video-facade {
   margin-top: var(--space-md);
@@ -833,6 +860,14 @@ h3 {
 
 .contact h2 { max-width: 20ch; }
 
+.contact__note {
+  margin-top: clamp(var(--space-lg), 4vh, var(--space-xl));
+  max-width: var(--measure);
+  color: var(--dim);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
 .contact__email {
   display: inline-block;
   margin-top: clamp(var(--space-xl), 5vh, var(--space-2xl));
@@ -891,6 +926,8 @@ h3 {
 
 .cv__head h1 { font-size: clamp(2.75rem, 7vw, 5rem); }
 
+.cv__head .kicker { margin-bottom: var(--space-md); }
+
 .cv__head .lede { margin-top: var(--space-lg); }
 
 .cv section { padding-block: var(--space-2xl); border-top: 1px solid var(--hairline); }
@@ -907,7 +944,7 @@ h3 {
   gap: var(--space-lg);
   padding-block: var(--space-md);
   border-top: 1px solid var(--hairline);
-  font-size: 14.5px;
+  font-size: 14px;
   line-height: 1.6;
 }
 
@@ -1005,6 +1042,7 @@ h3 {
 @media (max-width: 480px) {
   h1 { font-size: clamp(2.9rem, 15vw, 3.6rem); }
   .nav__name { font-size: 14px; }
+  .hero__center .kicker { font-size: 12px; letter-spacing: 0.16em; }
   .hero__baseline { flex-direction: column; gap: var(--space-md); }
   .pub { grid-template-columns: minmax(0, 1fr); }
   .pub__year { font-size: 1rem; }

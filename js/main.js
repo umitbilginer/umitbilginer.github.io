@@ -73,20 +73,15 @@
   var toggleBtn = document.getElementById("pub-toggle");
   var countEl = document.getElementById("pub-count");
 
+  /* six filters only; the full topic/species taxonomy remains in
+     publications.json and can be resurfaced without data changes */
   var FILTERS = [
     { key: "all", label: "All" },
     { key: "first", label: "First author" },
-    { key: "sp:cattle", label: "Cattle" },
-    { key: "sp:sheep", label: "Sheep" },
-    { key: "sp:goat", label: "Goats" },
-    { key: "sp:poultry", label: "Poultry" },
     { key: "tp:methane", label: "Methane" },
-    { key: "tp:popgen", label: "Population genomics" },
-    { key: "tp:gwas", label: "GWAS and selection" },
-    { key: "tp:genes", label: "Candidate genes" },
-    { key: "tp:seq", label: "Sequencing" },
-    { key: "tp:ml", label: "Machine learning" },
-    { key: "tp:review", label: "Reviews" }
+    { key: "sp:cattle", label: "Cattle" },
+    { key: "sp:smallrum", label: "Sheep and goats" },
+    { key: "sp:poultry", label: "Poultry" }
   ];
 
   var pubs = [];
@@ -96,6 +91,7 @@
   function matches(pub, filter) {
     if (filter === "all") return true;
     if (filter === "first") return !!pub.first_author;
+    if (filter === "sp:smallrum") return (pub.species || []).indexOf("sheep") !== -1 || (pub.species || []).indexOf("goat") !== -1;
     if (filter.indexOf("sp:") === 0) return (pub.species || []).indexOf(filter.slice(3)) !== -1;
     if (filter.indexOf("tp:") === 0) return (pub.topics || []).indexOf(filter.slice(3)) !== -1;
     return true;
@@ -227,9 +223,17 @@
     var thumb = document.createElement("img");
     thumb.src = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
     thumb.alt = "";
-    thumb.loading = "lazy";
+    /* eager: it is the page's only third-party request, and a facade
+       whose thumbnail never painted reads as an empty box */
+    thumb.loading = "eager";
+    thumb.decoding = "async";
     thumb.width = 480;
     thumb.height = 360;
+    /* if the thumbnail fails, fall back to the plain field-lo panel
+       with the bordered play chip; never a broken-image glyph */
+    thumb.addEventListener("error", function () {
+      if (thumb.parentNode) thumb.parentNode.removeChild(thumb);
+    });
 
     var play = document.createElement("span");
     play.className = "play";

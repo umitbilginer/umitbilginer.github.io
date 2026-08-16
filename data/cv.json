@@ -1,14 +1,14 @@
 {
   "education": [
-    { "period": "2025 – present", "degree": "PhD, Animal and Dairy Sciences", "org": "University of Wisconsin–Madison", "note": "Advisor: Francisco Peñagaricano. Thesis: genetics of methane emissions in US Holstein cattle (ongoing)." },
+    { "period": "2025 – present, expected Fall 2028", "degree": "PhD, Animal and Dairy Sciences", "org": "University of Wisconsin–Madison", "note": "Advisor: Francisco Peñagaricano. Thesis: genetics of methane emissions in US Holstein cattle (ongoing)." },
     { "period": "2024 – 2025", "degree": "PhD studies, Animal Science", "org": "Michigan State University", "note": "Genomic prediction methodologies for livestock traits with Cedric Gondro." },
     { "period": "2019 – 2021", "degree": "M.Sc. in Animal Science", "org": "Akdeniz University, Antalya, Türkiye", "note": "" },
     { "period": "2014 – 2018", "degree": "B.Sc. in Animal Science", "org": "Akdeniz University, Antalya, Türkiye", "note": "" }
   ],
   "positions": [
-    { "period": "May – Sep 2026", "title": "Genetics and Genomics Intern", "org": "ABS Global (Genus plc), DeForest, WI", "industry": true, "note": "Beef and dairy genetics projects, under Juan Nani. Mid-May through 1 September 2026." },
+    { "period": "May – Sep 2026", "title": "Genetics and Genomics Intern", "org": "ABS Global (Genus plc), DeForest, WI", "industry": true, "note": "Currently on site: beef and dairy genetics projects under Juan Nani, through 1 September 2026." },
     { "period": "2025 – present", "title": "Graduate Research Assistant", "org": "University of Wisconsin–Madison", "industry": false, "note": "Genomic prediction and quantitative genetics in dairy cattle with Francisco Peñagaricano." },
-    { "period": "Summer 2025", "title": "Genetics Intern", "org": "Cobb-Vantress (Tyson Foods), Siloam Springs, AR", "industry": true, "note": "GWAS with Near-Infrared datasets for genetic marker identification in poultry." },
+    { "period": "Summer 2025", "title": "Genetics Intern", "org": "Cobb-Vantress (Tyson Foods), Siloam Springs, AR", "industry": true, "note": "GWAS with Near-Infrared datasets for genetic marker identification in poultry. This internship produced the first-author paper on machine learning classification of dilated cardiomyopathy severity in broiler chickens (Poultry Science, 2026)." },
     { "period": "2024 – 2025", "title": "Graduate Research Assistant", "org": "Michigan State University, East Lansing, MI", "industry": false, "note": "Genomic prediction methodologies for livestock traits with Cedric Gondro." },
     { "period": "2023", "title": "Visiting Researcher (Erasmus+)", "org": "Aarhus University, Denmark", "industry": false, "note": "Bioinformatics of ddRADseq data at the Center for Quantitative Genetics and Genomics." },
     { "period": "Summer 2017", "title": "Dairy Farm Intern", "org": "Günaydın Hayvancılık, Balıkesir, Türkiye", "industry": true, "note": "Three months hands-on at a commercial dairy operation." },
