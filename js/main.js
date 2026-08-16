@@ -1,4 +1,4 @@
-/* Ümit Bilginer — colour-field redesign
+/* Ümit Bilginer, colour-field redesign
    1. mobile nav (focus trap, Escape, focus restore)
    2. publications ledger (fetch, filter pills, collapse/expand)
    3. click-to-load YouTube facade                              */
@@ -6,7 +6,7 @@
 (function () {
   "use strict";
 
-  /* ---------- 1 · mobile nav ---------- */
+  /* ---------- 1. mobile nav ---------- */
 
   var toggle = document.getElementById("nav-toggle");
   var menu = document.getElementById("nav-menu");
@@ -63,7 +63,7 @@
     });
   }
 
-  /* ---------- 2 · publications ledger ---------- */
+  /* ---------- 2. publications ledger ---------- */
 
   var SCHOLAR = "https://scholar.google.com/citations?user=y5osRVUAAAAJ";
   var COLLAPSED_COUNT = 8;
@@ -82,7 +82,7 @@
     { key: "sp:poultry", label: "Poultry" },
     { key: "tp:methane", label: "Methane" },
     { key: "tp:popgen", label: "Population genomics" },
-    { key: "tp:gwas", label: "GWAS & selection" },
+    { key: "tp:gwas", label: "GWAS and selection" },
     { key: "tp:genes", label: "Candidate genes" },
     { key: "tp:seq", label: "Sequencing" },
     { key: "tp:ml", label: "Machine learning" },
@@ -127,7 +127,7 @@
         : esc(p.title);
       var detail = p.detail ? " " + esc(p.detail) : "";
       var cites = p.citations > 0
-        ? " &middot; " + p.citations + (p.citations === 1 ? " citation" : " citations")
+        ? " | " + p.citations + (p.citations === 1 ? " citation" : " citations")
         : "";
       var fa = p.first_author ? ' <span class="fa">First author</span>' : "";
       html += '<li class="pub">' +
@@ -183,8 +183,8 @@
   function pubsFailed() {
     if (!listEl) return;
     listEl.innerHTML = '<p class="pubs__status">The publication list could not be loaded here. ' +
-      'The full, always-current list is on <a href="' + SCHOLAR + '">Google Scholar</a> ' +
-      "&mdash; 22 peer-reviewed papers, 156 citations, h-index 7.</p>";
+      'The full, always-current list is on <a href="' + SCHOLAR + '">Google Scholar</a>: ' +
+      "22 peer-reviewed papers, 156 citations, h-index 7.</p>";
     if (toggleBtn) toggleBtn.hidden = true;
     if (filtersEl) filtersEl.hidden = true;
   }
@@ -213,7 +213,7 @@
       .catch(pubsFailed);
   }
 
-  /* ---------- 3 · click-to-load video facade ---------- */
+  /* ---------- 3. click-to-load video facade ---------- */
 
   var facades = document.querySelectorAll(".video-facade[data-video-id]");
   Array.prototype.forEach.call(facades, function (facade) {

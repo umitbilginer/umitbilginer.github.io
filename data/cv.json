@@ -1,12 +1,12 @@
 {
   "education": [
-    { "period": "2025 – present", "degree": "PhD, Animal & Dairy Sciences", "org": "University of Wisconsin–Madison", "note": "Advisor: Francisco Peñagaricano. Thesis: genetics of methane emissions in US Holstein cattle (ongoing)." },
+    { "period": "2025 – present", "degree": "PhD, Animal and Dairy Sciences", "org": "University of Wisconsin–Madison", "note": "Advisor: Francisco Peñagaricano. Thesis: genetics of methane emissions in US Holstein cattle (ongoing)." },
     { "period": "2024 – 2025", "degree": "PhD studies, Animal Science", "org": "Michigan State University", "note": "Genomic prediction methodologies for livestock traits with Cedric Gondro." },
     { "period": "2019 – 2021", "degree": "M.Sc. in Animal Science", "org": "Akdeniz University, Antalya, Türkiye", "note": "" },
     { "period": "2014 – 2018", "degree": "B.Sc. in Animal Science", "org": "Akdeniz University, Antalya, Türkiye", "note": "" }
   ],
   "positions": [
-    { "period": "May – Sep 2026", "title": "Genetics & Genomics Intern", "org": "ABS Global (Genus plc), DeForest, WI", "industry": true, "note": "Beef and dairy genetics projects, under Juan Nani. Mid-May through 1 September 2026." },
+    { "period": "May – Sep 2026", "title": "Genetics and Genomics Intern", "org": "ABS Global (Genus plc), DeForest, WI", "industry": true, "note": "Beef and dairy genetics projects, under Juan Nani. Mid-May through 1 September 2026." },
     { "period": "2025 – present", "title": "Graduate Research Assistant", "org": "University of Wisconsin–Madison", "industry": false, "note": "Genomic prediction and quantitative genetics in dairy cattle with Francisco Peñagaricano." },
     { "period": "Summer 2025", "title": "Genetics Intern", "org": "Cobb-Vantress (Tyson Foods), Siloam Springs, AR", "industry": true, "note": "GWAS with Near-Infrared datasets for genetic marker identification in poultry." },
     { "period": "2024 – 2025", "title": "Graduate Research Assistant", "org": "Michigan State University, East Lansing, MI", "industry": false, "note": "Genomic prediction methodologies for livestock traits with Cedric Gondro." },
@@ -15,17 +15,17 @@
     { "period": "pre-2014", "title": "Shepherd", "org": "Family flock, rural Türkiye", "industry": false, "note": "" }
   ],
   "talks": [
-    { "year": 2026, "title": "Genetic parameters of methane emissions traits in US Holstein cows", "venue": "WCGALP 2026, Madison — poster C1-5 and pitch, July 2026", "url": "https://www.iastatedigitalpress.com/wcgalp/article/id/24220/", "url_label": "Proceedings" },
-    { "year": 2026, "title": "Methane emissions in US Holstein cows", "venue": "5th UW–Madison Dairy Symposium — session on stewarding land and water resources; with Francisco Peñagaricano and Afees Abiola Ajasa. Supported by the Dairy Innovation Hub.", "url": "https://www.youtube.com/watch?v=6ocJvWbaxkg", "url_label": "Recording", "video_id": "6ocJvWbaxkg" }
+    { "year": 2026, "title": "Genetic parameters of methane emissions traits in US Holstein cows", "venue": "WCGALP 2026, Madison: poster C1-5 and pitch, July 2026", "url": "https://www.iastatedigitalpress.com/wcgalp/article/id/24220/", "url_label": "Proceedings" },
+    { "year": 2026, "title": "Methane emissions in US Holstein cows", "venue": "5th UW–Madison Dairy Symposium, session on stewarding land and water resources, with Francisco Peñagaricano and Afees Abiola Ajasa. Supported by the Dairy Innovation Hub.", "url": "https://www.youtube.com/watch?v=6ocJvWbaxkg", "url_label": "Recording", "video_id": "6ocJvWbaxkg" }
   ],
   "awards": [
-    { "year": 2026, "title": "2nd place, UW–Madison Infographic Poster Competition, Animal & Dairy Sciences", "note": "“Less Gas, Same Glass” — roughly 30% of the variation in methane output is genetic." },
+    { "year": 2026, "title": "2nd place, UW–Madison Infographic Poster Competition, Animal and Dairy Sciences", "note": "“Less Gas, Same Glass”: roughly 30% of the variation in methane output is genetic." },
     { "year": 2023, "title": "Erasmus+ visiting researcher grant", "note": "Aarhus University, Denmark." }
   ],
   "skills": {
-    "Genomics": "R · BLUPF90+ · PLINK · GCTA · GEMMA · VCFtools · ADMIXTURE",
-    "Computing": "Linux · Bash · HPC (CHTC)",
-    "Wet lab": "ddRADseq library prep · GBS · PCR"
+    "Genomics": "R, BLUPF90+, PLINK, GCTA, GEMMA, VCFtools, ADMIXTURE",
+    "Computing": "Linux, Bash, HPC (CHTC)",
+    "Wet lab": "ddRADseq library prep, GBS, PCR"
   },
   "languages": ["English", "Türkçe", "Kurdî"]
 }
