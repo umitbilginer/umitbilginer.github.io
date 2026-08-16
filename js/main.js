@@ -1,364 +1,255 @@
-/* ============================================
-   UMIT BILGINER — Website JavaScript
-   DNA Canvas, Scroll Reveals, Stats Counter,
-   Publication Filters, Mobile Nav
-   ============================================ */
+/* Ümit Bilginer — colour-field redesign
+   1. mobile nav (focus trap, Escape, focus restore)
+   2. publications ledger (fetch, filter pills, collapse/expand)
+   3. click-to-load YouTube facade                              */
 
-// ========== DNA HELIX CANVAS ==========
 (function () {
-  const canvas = document.getElementById('dna-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  "use strict";
 
-  let width, height, particles, time = 0;
-  let isHeroVisible = true;
-  let animationId = null;
-  const PARTICLE_COUNT = 80;
-  const ACCENT = '#10B981';
-  const ACCENT_DIM = 'rgba(16, 185, 129, 0.15)';
+  /* ---------- 1 · mobile nav ---------- */
 
-  // Pause canvas when hero is off-screen (battery saving)
-  const heroSection = document.getElementById('hero');
-  const heroObserver = new IntersectionObserver((entries) => {
-    isHeroVisible = entries[0].isIntersecting;
-    if (isHeroVisible && !animationId) draw();
-  }, { threshold: 0 });
-  if (heroSection) heroObserver.observe(heroSection);
+  var toggle = document.getElementById("nav-toggle");
+  var menu = document.getElementById("nav-menu");
+  var closeBtn = document.getElementById("nav-close");
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
+  function menuIsOpen() {
+    return menu && menu.classList.contains("is-open");
   }
 
-  function initParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        y: (i / PARTICLE_COUNT) * height * 1.4 - height * 0.2,
-        phase: (i / PARTICLE_COUNT) * Math.PI * 6,
-        radius: 2 + Math.random() * 2,
-        speed: 0.3 + Math.random() * 0.3,
-      });
+  function openMenu() {
+    menu.classList.add("is-open");
+    toggle.setAttribute("aria-expanded", "true");
+    document.addEventListener("keydown", onMenuKeydown);
+    var first = menu.querySelector("button, a");
+    if (first) first.focus();
+  }
+
+  function closeMenu() {
+    menu.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    document.removeEventListener("keydown", onMenuKeydown);
+    toggle.focus();
+  }
+
+  function onMenuKeydown(e) {
+    if (!menuIsOpen()) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeMenu();
+      return;
     }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-    time += 0.008;
-
-    const centerX = width * 0.75;
-    const amplitude = Math.min(width * 0.12, 120);
-
-    // Draw connecting lines between strand pairs
-    for (let i = 0; i < particles.length; i++) {
-      const p = particles[i];
-      const y = p.y;
-      const offset = Math.sin(p.phase + time * p.speed) * amplitude;
-      const x1 = centerX + offset;
-      const x2 = centerX - offset;
-
-      // Depth factor for 3D feel
-      const depth = (Math.sin(p.phase + time * p.speed) + 1) / 2;
-
-      // Rungs (connecting lines)
-      if (i % 3 === 0) {
-        ctx.beginPath();
-        ctx.moveTo(x1, y);
-        ctx.lineTo(x2, y);
-        ctx.strokeStyle = `rgba(16, 185, 129, ${0.06 + depth * 0.06})`;
-        ctx.lineWidth = 1;
-        ctx.stroke();
+    if (e.key === "Tab") {
+      var focusables = menu.querySelectorAll("button, a");
+      if (!focusables.length) return;
+      var firstEl = focusables[0];
+      var lastEl = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === firstEl) {
+        e.preventDefault();
+        lastEl.focus();
+      } else if (!e.shiftKey && document.activeElement === lastEl) {
+        e.preventDefault();
+        firstEl.focus();
       }
-
-      // Strand 1 (front when depth > 0.5)
-      const alpha1 = depth * 0.6 + 0.1;
-      ctx.beginPath();
-      ctx.arc(x1, y, p.radius * (0.5 + depth * 0.5), 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(16, 185, 129, ${alpha1})`;
-      ctx.fill();
-
-      // Strand 2 (back when depth > 0.5)
-      const alpha2 = (1 - depth) * 0.6 + 0.1;
-      ctx.beginPath();
-      ctx.arc(x2, y, p.radius * (1 - depth * 0.5), 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(52, 211, 153, ${alpha2})`;
-      ctx.fill();
-    }
-
-    // Draw faint vertical strand curves
-    ctx.beginPath();
-    ctx.strokeStyle = ACCENT_DIM;
-    ctx.lineWidth = 1;
-    for (let i = 0; i < particles.length - 1; i++) {
-      const p = particles[i];
-      const x = centerX + Math.sin(p.phase + time * p.speed) * amplitude;
-      if (i === 0) ctx.moveTo(x, p.y);
-      else ctx.lineTo(x, p.y);
-    }
-    ctx.stroke();
-
-    ctx.beginPath();
-    for (let i = 0; i < particles.length - 1; i++) {
-      const p = particles[i];
-      const x = centerX - Math.sin(p.phase + time * p.speed) * amplitude;
-      if (i === 0) ctx.moveTo(x, p.y);
-      else ctx.lineTo(x, p.y);
-    }
-    ctx.stroke();
-
-    if (isHeroVisible) {
-      animationId = requestAnimationFrame(draw);
-    } else {
-      animationId = null;
     }
   }
 
-  window.addEventListener('resize', () => {
-    resize();
-    initParticles();
-  });
+  if (toggle && menu) {
+    toggle.addEventListener("click", function () {
+      if (menuIsOpen()) { closeMenu(); } else { openMenu(); }
+    });
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A" && menuIsOpen()) closeMenu();
+    });
+  }
 
-  resize();
-  initParticles();
-  draw();
-})();
+  /* ---------- 2 · publications ledger ---------- */
 
+  var SCHOLAR = "https://scholar.google.com/citations?user=y5osRVUAAAAJ";
+  var COLLAPSED_COUNT = 8;
 
-// ========== NAVBAR SCROLL EFFECT ==========
-(function () {
-  const nav = document.getElementById('navbar');
-  let lastScroll = 0;
+  var listEl = document.getElementById("pub-list");
+  var filtersEl = document.getElementById("pub-filters");
+  var toggleBtn = document.getElementById("pub-toggle");
+  var countEl = document.getElementById("pub-count");
 
-  window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    if (scroll > 50) {
-      nav.classList.add('scrolled');
-    } else {
-      nav.classList.remove('scrolled');
+  var FILTERS = [
+    { key: "all", label: "All" },
+    { key: "first", label: "First author" },
+    { key: "sp:cattle", label: "Cattle" },
+    { key: "sp:sheep", label: "Sheep" },
+    { key: "sp:goat", label: "Goats" },
+    { key: "sp:poultry", label: "Poultry" },
+    { key: "tp:methane", label: "Methane" },
+    { key: "tp:popgen", label: "Population genomics" },
+    { key: "tp:gwas", label: "GWAS & selection" },
+    { key: "tp:genes", label: "Candidate genes" },
+    { key: "tp:seq", label: "Sequencing" },
+    { key: "tp:ml", label: "Machine learning" },
+    { key: "tp:review", label: "Reviews" }
+  ];
+
+  var pubs = [];
+  var activeFilter = "all";
+  var expanded = false;
+
+  function matches(pub, filter) {
+    if (filter === "all") return true;
+    if (filter === "first") return !!pub.first_author;
+    if (filter.indexOf("sp:") === 0) return (pub.species || []).indexOf(filter.slice(3)) !== -1;
+    if (filter.indexOf("tp:") === 0) return (pub.topics || []).indexOf(filter.slice(3)) !== -1;
+    return true;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+
+  function authorsHtml(pub) {
+    return pub.authors.map(function (a, i) {
+      var name = esc(a);
+      return i === pub.self_index ? '<span class="self">' + name + "</span>" : name;
+    }).join(", ");
+  }
+
+  function renderPubs() {
+    if (!listEl) return;
+    var filtered = pubs.filter(function (p) { return matches(p, activeFilter); });
+    var visible = expanded ? filtered : filtered.slice(0, COLLAPSED_COUNT);
+
+    var html = '<ol class="pubs__group">';
+    var lastYear = null;
+    visible.forEach(function (p) {
+      var yearCell = p.year !== lastYear ? String(p.year) : "";
+      lastYear = p.year;
+      var title = p.url
+        ? '<a href="' + esc(p.url) + '">' + esc(p.title) + "</a>"
+        : esc(p.title);
+      var detail = p.detail ? " " + esc(p.detail) : "";
+      var cites = p.citations > 0
+        ? " &middot; " + p.citations + (p.citations === 1 ? " citation" : " citations")
+        : "";
+      var fa = p.first_author ? ' <span class="fa">First author</span>' : "";
+      html += '<li class="pub">' +
+        '<span class="pub__year">' + yearCell + "</span>" +
+        "<div>" +
+        '<p class="pub__title">' + title + "</p>" +
+        '<p class="pub__meta"><span class="authors">' + authorsHtml(p) + "</span><br>" +
+        '<span class="venue">' + esc(p.venue) + "</span>" + detail + cites + fa + "</p>" +
+        "</div></li>";
+    });
+    html += "</ol>";
+
+    if (!filtered.length) {
+      html = '<p class="pubs__status">Nothing matches this filter. The full list is on <a href="' + SCHOLAR + '">Google Scholar</a>.</p>';
     }
-    lastScroll = scroll;
-  });
-})();
 
+    listEl.innerHTML = html;
 
-// ========== MOBILE NAV TOGGLE ==========
-(function () {
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-
-  if (!toggle || !links) return;
-
-  toggle.addEventListener('click', () => {
-    toggle.classList.toggle('open');
-    links.classList.toggle('open');
-  });
-
-  // Close on link click
-  links.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      toggle.classList.remove('open');
-      links.classList.remove('open');
-    });
-  });
-})();
-
-
-// ========== SCROLL REVEAL ==========
-(function () {
-  const reveals = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+    if (toggleBtn) {
+      if (filtered.length > COLLAPSED_COUNT) {
+        toggleBtn.hidden = false;
+        toggleBtn.textContent = expanded ? "Show fewer" : "Show all " + filtered.length;
+      } else {
+        toggleBtn.hidden = true;
       }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
+    }
+    if (countEl) {
+      countEl.textContent = "Showing " + visible.length + " of " + pubs.length + " papers";
+    }
+  }
 
-  reveals.forEach(el => observer.observe(el));
-})();
-
-
-// ========== STATS COUNTER ==========
-(function () {
-  const counters = document.querySelectorAll('.stat-number');
-  let counted = false;
-
-  function animateCounters() {
-    counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute('data-target'));
-      const duration = 2000;
-      const startTime = performance.now();
-
-      function update(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out cubic
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = Math.round(eased * target);
-        counter.textContent = current;
-
-        if (progress < 1) {
-          requestAnimationFrame(update);
-        } else {
-          const suffix = counter.getAttribute('data-suffix') || '';
-          counter.textContent = target + suffix;
+  function renderFilters() {
+    if (!filtersEl) return;
+    FILTERS.forEach(function (f) {
+      var btn = document.createElement("button");
+      btn.className = "pill";
+      btn.type = "button";
+      btn.textContent = f.label;
+      btn.setAttribute("aria-pressed", f.key === activeFilter ? "true" : "false");
+      btn.dataset.filter = f.key;
+      btn.addEventListener("click", function () {
+        activeFilter = f.key;
+        var pills = filtersEl.querySelectorAll(".pill");
+        for (var i = 0; i < pills.length; i++) {
+          pills[i].setAttribute("aria-pressed", pills[i].dataset.filter === activeFilter ? "true" : "false");
         }
-      }
-
-      requestAnimationFrame(update);
+        renderPubs();
+      });
+      filtersEl.appendChild(btn);
     });
   }
 
-  const statsSection = document.getElementById('stats');
-  if (!statsSection) return;
+  function pubsFailed() {
+    if (!listEl) return;
+    listEl.innerHTML = '<p class="pubs__status">The publication list could not be loaded here. ' +
+      'The full, always-current list is on <a href="' + SCHOLAR + '">Google Scholar</a> ' +
+      "&mdash; 22 peer-reviewed papers, 156 citations, h-index 7.</p>";
+    if (toggleBtn) toggleBtn.hidden = true;
+    if (filtersEl) filtersEl.hidden = true;
+  }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && !counted) {
-        counted = true;
-        animateCounters();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(statsSection);
-})();
-
-
-// ========== PUBLICATION FILTERS ==========
-(function () {
-  const filters = document.querySelectorAll('.pub-filter');
-  const cards = document.querySelectorAll('.pub-card');
-
-  filters.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Update active button
-      filters.forEach(f => f.classList.remove('active'));
-      btn.classList.add('active');
-
-      const filter = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const year = card.getAttribute('data-year');
-        const type = card.getAttribute('data-type');
-
-        let show = false;
-        if (filter === 'all') show = true;
-        else if (filter === 'first') show = type === 'first';
-        else show = year === filter;
-
-        if (show) {
-          card.classList.remove('hidden');
-          card.style.opacity = '0';
-          card.style.transform = 'translateY(10px)';
-          requestAnimationFrame(() => {
-            card.style.transition = 'all 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
+  if (listEl) {
+    fetch("data/publications.json")
+      .then(function (r) {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.json();
+      })
+      .then(function (data) {
+        if (!Array.isArray(data) || !data.length) throw new Error("empty");
+        pubs = data.slice().sort(function (a, b) { return b.year - a.year; });
+        renderFilters();
+        renderPubs();
+        if (toggleBtn) {
+          toggleBtn.addEventListener("click", function () {
+            expanded = !expanded;
+            renderPubs();
+            if (expanded === false) {
+              document.getElementById("publications").scrollIntoView();
+            }
           });
-        } else {
-          card.classList.add('hidden');
         }
-      });
-    });
-  });
-})();
-
-
-// ========== ACTIVE NAV LINK HIGHLIGHT ==========
-(function () {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.getAttribute('id');
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + id) {
-            link.style.color = '#10B981';
-          } else {
-            link.style.color = '';
-          }
-        });
-      }
-    });
-  }, {
-    threshold: 0.2,
-    rootMargin: '-80px 0px -50% 0px'
-  });
-
-  sections.forEach(s => observer.observe(s));
-})();
-
-
-// ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const href = link.getAttribute('href');
-    if (href === '#') return;
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: 'smooth' });
-    }
-  });
-});
-
-
-// ========== PUBLICATION SHOW/HIDE (default 6) ==========
-(function () {
-  const cards = document.querySelectorAll('.pub-card');
-  const toggle = document.getElementById('pub-toggle');
-  if (!toggle || cards.length <= 6) return;
-
-  let expanded = false;
-  const INITIAL_COUNT = 6;
-
-  function applyVisibility() {
-    cards.forEach((card, i) => {
-      if (!expanded && i >= INITIAL_COUNT && !card.classList.contains('hidden')) {
-        card.style.display = 'none';
-      } else if (!card.classList.contains('hidden')) {
-        card.style.display = '';
-      }
-    });
-    toggle.textContent = expanded
-      ? 'Show fewer'
-      : 'Show all ' + cards.length + ' publications';
+      })
+      .catch(pubsFailed);
   }
 
-  applyVisibility();
+  /* ---------- 3 · click-to-load video facade ---------- */
 
-  toggle.addEventListener('click', () => {
-    expanded = !expanded;
-    applyVisibility();
-  });
+  var facades = document.querySelectorAll(".video-facade[data-video-id]");
+  Array.prototype.forEach.call(facades, function (facade) {
+    var id = facade.dataset.videoId;
+    var title = facade.dataset.videoTitle || "Video";
 
-  // Reset when filter is used
-  document.querySelectorAll('.pub-filter').forEach(btn => {
-    btn.addEventListener('click', () => {
-      expanded = true;
-      toggle.style.display = 'none';
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.setAttribute("aria-label", "Play video: " + title);
+
+    var thumb = document.createElement("img");
+    thumb.src = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+    thumb.alt = "";
+    thumb.loading = "lazy";
+    thumb.width = 480;
+    thumb.height = 360;
+
+    var play = document.createElement("span");
+    play.className = "play";
+    play.textContent = "▸ Play recording";
+
+    btn.appendChild(thumb);
+    btn.appendChild(play);
+    facade.appendChild(btn);
+
+    btn.addEventListener("click", function () {
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1";
+      iframe.title = title;
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+      iframe.setAttribute("allowfullscreen", "");
+      /* the button (and its play affordance) is removed entirely,
+         so nothing overlays the live iframe */
+      facade.replaceChild(iframe, btn);
+      iframe.focus();
     });
   });
 
-  // Show toggle again when "All" filter is clicked
-  const allBtn = document.querySelector('[data-filter="all"]');
-  if (allBtn) {
-    allBtn.addEventListener('click', () => {
-      expanded = false;
-      toggle.style.display = '';
-      applyVisibility();
-    });
-  }
 })();
